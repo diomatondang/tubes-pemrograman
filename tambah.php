@@ -1,23 +1,22 @@
 <?php 
+// 1. Koneksi ke database
 include 'koneksi.php';
 
-// Menangkap data dari form
+// 2. Ambil data dari form modal
 $nama = $_POST['nama'];
 $telepon = $_POST['telepon'];
 $alamat = $_POST['alamat'];
 
-// Gunakan tanda backtick (`) untuk nama tabel yang ada spasi
+// 3. Masukkan ke database
+// Gunakan tanda backtick (`) karena nama tabel 'tabel pelanggan' pakai spasi
 $query = "INSERT INTO `tabel pelanggan` (nama, telepon, alamat) VALUES ('$nama', '$telepon', '$alamat')";
 
-$simpan = mysqli_query($koneksi, $query);
-
-if($simpan){
-    // Jika berhasil, balik ke halaman utama
+// 4. Jalankan perintah
+if(mysqli_query($koneksi, $query)){
+    // Berhasil: balik ke dashboard
     header("location:main_pages.php");
 } else {
-    // Jika gagal, akan muncul tulisan errornya apa
-    echo "<h1>Waduh, Gagal Simpan!</h1>";
-    echo "Pesan Error: " . mysqli_error($koneksi);
-    echo "<br><a href='main_pages.php'>Kembali</a>";
+    // Gagal: kasih tahu errornya apa
+    echo "Gagal simpan karena: " . mysqli_error($koneksi);
 }
 ?>
