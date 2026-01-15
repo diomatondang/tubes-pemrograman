@@ -29,7 +29,7 @@
                      <p>Klik tombol di bawah untuk masuk ke dashboard.</p>
                 </div>
 
-                <form action="main_pages .php" method="POST">
+                <form action="main_pages.php" method="POST">
                     <div class="input-group mb-3">
                         <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Masuk ke Sistem</button>
                     </div>
